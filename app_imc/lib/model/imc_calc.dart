@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-dynamic calcularIMC(
+
+ dynamic calcularIMC(
       {required bool sexoFem,
       required int idade,
       required double peso,
