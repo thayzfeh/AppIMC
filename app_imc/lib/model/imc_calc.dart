@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
     const List descricoes = [
       "Você está abaixo do peso ideal",
       "Parabéns - você está em seu peso normal",
-      "Você está acima do seupeso (sobrepeso)",
+      "Você está acima do seu peso (sobrepeso)",
       "Você está com o peso acima do grau I",
       "Você está com o peso acima do grau II",
       "Você está com o peso acima do grau III"
