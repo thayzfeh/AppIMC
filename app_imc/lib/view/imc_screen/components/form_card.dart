@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:app_imc/main.dart';
-import 'package:app_imc/model/imc_calc.dart';
 
 import 'form_row.dart';
 import 'ok_button.dart';
@@ -26,15 +25,15 @@ class _FormCardState extends State<FormCard> {
     });
   }
 
-  void _callbackPeso(bool boolValor, double valor) {
+  void _callbackPeso(bool boolValor, dynamic valor) {
     valoresCampo['peso'] = [boolValor, valor];
   }
 
-  void _callbackIdade(bool boolValor, double valor) {
+  void _callbackIdade(bool boolValor, dynamic valor) {
     valoresCampo['idade'] = [boolValor, valor];
   }
 
-  void _callbackAltura(bool boolValor, double valor) {
+  void _callbackAltura(bool boolValor, dynamic valor) {
     valoresCampo['altura'] = [boolValor, valor];
   }
 

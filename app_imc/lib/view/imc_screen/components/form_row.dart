@@ -5,7 +5,7 @@ class FormRow extends StatefulWidget {
   final String unit;
   bool estaVazio = true;
   final void Function() atualizarBotao;
-  final void Function(bool boolValor, double valor) callback;
+  final void Function(bool boolValor, dynamic valor) callback;
   FormRow(
       {super.key,
       required this.label,
