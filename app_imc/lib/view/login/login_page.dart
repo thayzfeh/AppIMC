@@ -14,8 +14,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey[300],
-      child: Center(
-        child: LoginCard(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [LoginCard(),]
+        ),
       ),
     );
   }

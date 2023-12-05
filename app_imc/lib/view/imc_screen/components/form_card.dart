@@ -121,7 +121,8 @@ class _FormCardState extends State<FormCard> {
                   callback: _callbackAltura,
                 ),
                 OkButton(
-                  calcularDados: _calcularDados,
+                  data: "Calcular IMC",
+                  onClick: _calcularDados,
                   getActiveButton: () => _botaoAtivo,
                 ),
               ],

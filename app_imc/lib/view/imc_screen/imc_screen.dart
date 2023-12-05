@@ -1,3 +1,4 @@
+import 'package:app_imc/main.dart';
 import 'package:flutter/material.dart';
 import '../../model/imc_calc.dart';
 import 'components/app_title.dart';
@@ -29,7 +30,7 @@ class _ImcScreen extends State<ImcScreen> {
 
   }
   List<Widget> elementsList = [
-    const AppTitle(),
+    AppTitle(data: 'Calculadora de IMC',color: MyApp.getDefaultColor(),),
   ];
 
   @override
