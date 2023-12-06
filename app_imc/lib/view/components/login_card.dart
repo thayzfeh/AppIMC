@@ -1,6 +1,6 @@
-import 'package:app_imc/view/imc_screen/components/app_title.dart';
-import 'package:app_imc/view/imc_screen/components/ok_button.dart';
-import 'package:app_imc/view/login/components/login_row.dart';
+import 'package:app_imc/view/components/app_title.dart';
+import 'package:app_imc/view/components/ok_button.dart';
+import 'package:app_imc/view/components/login_row.dart';
 import 'package:flutter/material.dart';
 
 class LoginCard extends StatefulWidget {
@@ -40,20 +40,34 @@ class _LoginCardState extends State<LoginCard> {
     return Card(
       color: _backgroundColor,
       child: SizedBox(
-        height: MediaQuery.of(context).size.height /2.5,
+        height: MediaQuery.of(context).size.height / 2.5,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 5.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppTitle(data: 'Meu Aplicativo', color: Colors.white,),
+              AppTitle(
+                data: 'Meu Aplicativo',
+                color: Colors.white,
+              ),
               LoginRow(
                   isPass: false,
                   label: "Login",
                   callback: _callbackUser,
                   atualizarBotao: _verifyInputs),
-              LoginRow( isPass:true, label: "Senha", callback: _callbackPass, atualizarBotao: _verifyInputs),
-              OkButton(onClick: () => null, getActiveButton: () => _button, data: 'Entrar')
+              LoginRow(
+                  isPass: true,
+                  label: "Senha",
+                  callback: _callbackPass,
+                  atualizarBotao: _verifyInputs),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  OkButton(
+                  onClick: () => null,
+                  getActiveButton: () => _button,
+                  data: 'Entrar'),
+                  OkButton(onClick: () => null, getActiveButton:() => _button, data: 'Cadastrar')],)
             ],
           ),
         ),

@@ -18,7 +18,7 @@ class _OkButtonState extends State<OkButton> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.0),
       child: SizedBox(
-        width: MediaQuery.of(context).size.width /2.5,
+        width: MediaQuery.of(context).size.width /3,
         height: 30,
         child: ElevatedButton(
           child: Text(widget.data),

@@ -1,5 +1,5 @@
-import 'package:app_imc/view/imc_screen/imc_screen.dart';
-import 'package:app_imc/view/login/login_page.dart';
+import 'package:app_imc/view/pages/imc_screen.dart';
+import 'package:app_imc/view/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

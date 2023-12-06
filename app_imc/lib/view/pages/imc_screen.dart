@@ -1,9 +1,9 @@
 import 'package:app_imc/main.dart';
 import 'package:flutter/material.dart';
 import '../../model/imc_calc.dart';
-import 'components/app_title.dart';
-import 'components/form_card.dart';
-import 'components/result_card.dart';
+import 'package:app_imc/view/components/app_title.dart';
+import 'package:app_imc/view/components/form_card.dart';
+import 'package:app_imc/view/components/result_card.dart';
 
 class ImcScreen extends StatefulWidget {
   const ImcScreen({super.key});

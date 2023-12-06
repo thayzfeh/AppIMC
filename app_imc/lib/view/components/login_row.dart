@@ -1,3 +1,4 @@
+import 'package:app_imc/main.dart';
 import 'package:flutter/material.dart';
 
 class LoginRow extends StatefulWidget {
@@ -48,11 +49,11 @@ class _LoginRowState extends State<LoginRow> {
                       ),
                     ])),
                     fillColor: Colors.white,
-                    filled: true),
+                    filled: true,
               ),
             ),
           ),
-        ],
+      )],
       ),
     );
   }
