@@ -22,27 +22,31 @@ class _ImcScreen extends State<ImcScreen> {
   };
   void _calcData({required bool sex,required int age,required double weight,required double height}) {
     setState(() {
-    if (elementsList.length > 2) {
+    if (elementsList.length > 1) {
       elementsList.removeLast();
     }
     elementsList.add(ResultCard(data: calcularIMC(sexoFem: sex, idade: age, peso: weight, altura: height)));
     });
 
   }
-  List<Widget> elementsList = [
-    AppTitle(data: 'Calculadora de IMC',color: MyApp.getDefaultColor(),),
-  ];
+  List<Widget> elementsList = [];
 
   @override
   Widget build(BuildContext context) {
-    if(elementsList.length == 1){
+    if(elementsList.isEmpty){
       elementsList.add(FormCard(calcImc: _calcData));
     }
-    return Container(
-      color: Colors.grey[300],
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: elementsList,
+    return Scaffold(
+      appBar: AppBar(
+        title: AppTitle(data: 'Calculadora de IMC',color: MyApp.getDefaultColor(),),
+      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        color: Colors.grey[300],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: elementsList,
+        ),
       ),
     );
   }

@@ -23,7 +23,7 @@ class _OkButtonState extends State<OkButton> {
         child: ElevatedButton(
           child: Text(widget.data),
           onPressed:
-              widget.getActiveButton() ? () => {widget.onClick()} : null,
+              widget.getActiveButton() ? widget.onClick : null,
           style: ButtonStyle(
             backgroundColor: widget.getActiveButton()
                 ? MaterialStatePropertyAll<Color>(MyApp.getDefaultColor())

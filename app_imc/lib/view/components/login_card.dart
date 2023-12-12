@@ -1,3 +1,6 @@
+import 'package:another_flushbar/flushbar.dart';
+import 'package:app_imc/controller/login_controller.dart';
+import 'package:app_imc/model/user.dart';
 import 'package:app_imc/view/components/app_title.dart';
 import 'package:app_imc/view/components/ok_button.dart';
 import 'package:app_imc/view/components/login_row.dart';
@@ -11,6 +14,54 @@ class LoginCard extends StatefulWidget {
 }
 
 class _LoginCardState extends State<LoginCard> {
+  void _tryLogin() {
+    User user =
+        User(user: form_values['User'][1], pass: form_values['Pass'][1]);
+    if (LoginController.isValid(user)) {
+      Flushbar(
+        title: 'Sucesso!',
+        message:
+            'Encontramos sua conta! Aguarde enquanto preparamos sua tela inicial!',
+        duration: Duration(seconds: 3),
+        showProgressIndicator: true,
+      ).show(context);
+      Future.delayed(Duration(seconds: 3), () {
+        Navigator.of(context).pushReplacementNamed('/home');
+      });
+    } else {
+      Flushbar(
+        title: 'Erro de autenticação :(',
+        message:
+            'Usuário não encontrado, verifique os dados e tente novamente.',
+        duration: Duration(seconds: 5),
+      ).show(context);
+    }
+  }
+
+  void _trySign() {
+    User user =
+        User(user: form_values['User'][1], pass: form_values['Pass'][1]);
+    if (LoginController.trySign(user)) {
+      Flushbar(
+        title: 'Sucesso!',
+        message:
+            'Sua conta foi criada! Aguarde enquanto preparamos sua tela inicial!',
+        duration: Duration(seconds: 3),
+        showProgressIndicator: true,
+      ).show(context);
+      Future.delayed(Duration(seconds: 3), () {
+        Navigator.of(context).pushReplacementNamed('/home');
+      });
+    } else {
+      Flushbar(
+        title: 'Erro :(',
+        message:
+            'Já existe um usuário cadastrado com esse nome, escolha outro!',
+        duration: Duration(seconds: 5),
+      ).show(context);
+    }
+  }
+
   void _verifyInputs() {
     setState(() {
       if (form_values['User']?[0] && form_values['Pass']?[0]) {
@@ -42,12 +93,12 @@ class _LoginCardState extends State<LoginCard> {
       child: SizedBox(
         height: MediaQuery.of(context).size.height / 2.5,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               AppTitle(
-                data: 'Meu Aplicativo',
+                data: 'IMC APP',
                 color: Colors.white,
               ),
               LoginRow(
@@ -64,10 +115,15 @@ class _LoginCardState extends State<LoginCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   OkButton(
-                  onClick: () => null,
-                  getActiveButton: () => _button,
-                  data: 'Entrar'),
-                  OkButton(onClick: () => null, getActiveButton:() => _button, data: 'Cadastrar')],)
+                      onClick: _tryLogin,
+                      getActiveButton: () => _button,
+                      data: 'Entrar'),
+                  OkButton(
+                      onClick: _trySign,
+                      getActiveButton: () => _button,
+                      data: 'Cadastrar')
+                ],
+              )
             ],
           ),
         ),
